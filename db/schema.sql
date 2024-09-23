@@ -3,25 +3,23 @@ CREATE DATABASE employees_db;
 
 \c employees_db;
 
-CREATE TABLE departments(
+CREATE TABLE department(
     id INTEGER PRIMARY KEY,
-    department VARCHAR(255) NOT NULL,
+    department_name VARCHAR(30) NOT NULL,
 );
 
-CREATE TABLE roles(
+CREATE TABLE role(
     id INTEGER PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    department VARCHAR(255) NOT NULL,
-    salary DECIMAL(10,2) NOT NULL
+    title VARCHAR(30)UNIQUE NOT NULL,
+    salary DECIMAL(10,2) NOT NULL,
+    department INTEGER NOT NULL
 );
 
 CREATE TABLE employees(
     id INTEGER PRIMARY KEY,
     first_name VARCHAR(30) NOT NULL,
     last_name VARCHAR(30) NOT NULL,
-    title VARCHAR(255) NOT NULL,
-    departments VARCHAR(255) NOT NULL,
-    salary DECIMAL(10,2) NOT NULL,
-    manager VARCHAR(255) NOT NULL
+    role_id INTEGER NOT NULL,
+    manager_id INTEGER
 )
 
